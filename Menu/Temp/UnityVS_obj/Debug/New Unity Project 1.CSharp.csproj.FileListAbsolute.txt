@@ -1,0 +1,17 @@
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_bin\Debug\Mono.Cecil.dll
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_bin\Debug\UnityEditor.dll
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_bin\Debug\UnityEditor.iOS.Extensions.Xcode.dll
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_bin\Debug\UnityEngine.dll
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_bin\Debug\UnityEngine.Networking.dll
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_bin\Debug\UnityEngine.xml
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_bin\Debug\UnityEngine.Networking.xml
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_bin\Debug\UnityEditor.xml
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_bin\Debug\Mono.Cecil.xml
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_bin\Debug\UnityEditor.iOS.Extensions.Xcode.xml
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_obj\Debug\New Unity Project 1.CSharp.csprojResolveAssemblyReference.cache
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_obj\Debug\Assembly-CSharp.dll
+C:\Users\BOSS\Documents\New Unity Project 1\Temp\UnityVS_obj\Debug\Assembly-CSharp.pdb
