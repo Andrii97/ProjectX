@@ -81,6 +81,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\MapSize.cs" />
+    <Compile Include="Assets\PerlinNoise.cs" />
+    <Compile Include="Assets\TerrainGenerator.cs" />
     <Compile Include="Assets\moving.cs" />
   </ItemGroup>
   <ItemGroup>
