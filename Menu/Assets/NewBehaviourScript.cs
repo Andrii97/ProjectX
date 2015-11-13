@@ -7,17 +7,17 @@ public class NewBehaviourScript : MonoBehaviour {
 
     public void NewGame()
     {
-        Application.LoadLevel(1);
+        Application.LoadLevel(3);
     }
 
     public void Choose()
     {
-        Application.LoadLevel(2);
+        Application.LoadLevel(3);
     }
 
     public void Profile()
     {
-        Application.LoadLevel(3);
+        Application.LoadLevel(4);
     }
 
     public void Quit()
@@ -32,6 +32,6 @@ public class NewBehaviourScript : MonoBehaviour {
 
     public void Back_To_Menu()
     {
-        Application.LoadLevel(0);
+        Application.LoadLevel(1);
     }
 }
