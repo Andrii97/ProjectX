@@ -4,13 +4,13 @@ using System.Collections;
 public class TerrainGenerator : MonoBehaviour
 {
 
-    public float R; // Коэффициент скалистости
-    public int GRAIN = 8; // Коэффициент зернистости
+    public float R = 0.1f; // Коэффициент скалистости
+    public int GRAIN = 4; // Коэффициент зернистости
     public bool FLAT = false; // Делать ли равнины
     public Material material;
 
-    private int width = 100;
-    private int height = 100;
+    private int width = 512;
+    private int height = 512;
     private float WH;
     private Color32[] cols;
     private Texture2D texture;
@@ -23,6 +23,7 @@ public class TerrainGenerator : MonoBehaviour
 
         // Задаём карту высот
         Terrain terrain = FindObjectOfType<Terrain>();
+        terrain.terrainData.size = new Vector3(width, height, width);
         float[,] heights = new float[resolution, resolution];
 
         // Создаём карту высот
@@ -31,8 +32,6 @@ public class TerrainGenerator : MonoBehaviour
         drawPlasma(width, height);
         texture.SetPixels32(cols);
         texture.Apply();
-
-        // Используем шейдер (смотри пункт 3 во 2 части)
 
         // Задаём высоту вершинам по карте высот
         for (int i = 0; i < resolution; i++)
@@ -44,7 +43,6 @@ public class TerrainGenerator : MonoBehaviour
         }
 
         // Применяем изменения
-        terrain.terrainData.size = new Vector3(width, width, height);
         terrain.terrainData.heightmapResolution = resolution;
         terrain.terrainData.SetHeights(0, 0, heights);
     }
@@ -77,12 +75,13 @@ public class TerrainGenerator : MonoBehaviour
         float newHeight = h * 0.5f;
 
         if (w < 1.0f && h < 1.0f)
-		{
+        {
             float c = (c1 + c2 + c3 + c4) * 0.25f;
             cols[(int)x + (int)y * width] = new Color(c, c, c);
         }
-		else
-		{
+        else
+        {
+
             float middle = (c1 + c2 + c3 + c4) * 0.25f + displace(newWidth + newHeight);
             float edge1 = (c1 + c2) * 0.5f;
             float edge2 = (c2 + c3) * 0.5f;
