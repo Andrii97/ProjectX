@@ -55,8 +55,6 @@
      <Compile Include="Assets\Scripts\Shoot.cs" />
      <Compile Include="Assets\Scripts\Tank.cs" />
      <Compile Include="Assets\Scripts\TankMover.cs" />
-     <Compile Include="Assets\Tank1.cs" />
-     <Compile Include="Assets\Tank2.cs" />
      <Compile Include="Assets\signin.cs" />
      <Compile Include="Assets\singup.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
