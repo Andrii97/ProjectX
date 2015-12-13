@@ -5,6 +5,7 @@ public class TankMover : MonoBehaviour {
 
     CharacterController cont;
     public float speed = 50f;
+    public static int lifes = 3;
 
     // Use this for initialization
     void Start () {
@@ -15,6 +16,11 @@ public class TankMover : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(lifes==0)
+        {
+            Destroy(gameObject);
+        }
+
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -32,9 +38,9 @@ public class TankMover : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.name == "Cube")
+        if(col.gameObject.tag == "Ammo")
         {
-            Destroy(gameObject);
+            lifes--;
         }
     }
 }
