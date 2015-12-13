@@ -25,13 +25,12 @@ public class MapController : MonoBehaviour {
     {
         BotTank = GameObject.Find("Tank");
         BotTank.transform.position = pos;
-        BotTank.transform.Rotate(rot);
+        BotTank.transform.rotation = Quaternion.Euler(rot); ;
     }
 
     void CreateBotAmmo()
     {
         BotTank = GameObject.Find("BotAmmo");
-        Vector3 pos = BotTank.transform.position;
         Vector3 force = BotTank.transform.forward;
         force.y += 0.1f;
         GameObject newAmmo = (GameObject)Instantiate(ammo, BotTank.transform.position, BotTank.transform.rotation);
@@ -41,7 +40,6 @@ public class MapController : MonoBehaviour {
     void CreateMyAmmo()
     {
         MyTank = GameObject.Find("MyAmmo");
-        Vector3 pos = MyTank.transform.position;
         Vector3 force = MyTank.transform.forward;
         force.y += 0.1f;
         GameObject newAmmo = (GameObject)Instantiate(ammo, MyTank.transform.position, MyTank.transform.rotation);
@@ -52,7 +50,6 @@ public class MapController : MonoBehaviour {
     void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            CreateBotAmmo();
             CreateMyAmmo();
         }
     }
