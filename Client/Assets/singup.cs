@@ -29,12 +29,12 @@ public class singup : MonoBehaviour {
 
         if (inputFieldCo3.text != inputFieldCo2.text && inputFieldCo3.text != "" && inputFieldCo2.text != "" && inputFieldCo1.text != "")
         {
-            UnityEditor.EditorUtility.DisplayDialog("Ошибка", "Пароли не совпадают", "ОК");
+         //   UnityEditor.EditorUtility.DisplayDialog("Ошибка", "Пароли не совпадают", "ОК");
         }
 
         else if (inputFieldCo1.text == "" || inputFieldCo2.text == "" || inputFieldCo3.text == "")
         {
-            UnityEditor.EditorUtility.DisplayDialog("Ошибка", "Заполните все поля", "ОК");
+       //     UnityEditor.EditorUtility.DisplayDialog("Ошибка", "Заполните все поля", "ОК");
         }
 
         client.BDClose();

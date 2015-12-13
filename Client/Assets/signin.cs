@@ -27,19 +27,24 @@ public class signin : MonoBehaviour {
         }
         else if (!client.Authorization(inputFieldCo1.text, inputFieldCo2.text) || inputFieldCo1.text != "" || inputFieldCo2.text != "")
         {
-            UnityEditor.EditorUtility.DisplayDialog("Ошибка", "Неправильный логин или пароль", "ОК");
+            Console.WriteLine("Ошибка "+ "Неправильный логин или пароль");
             Debug.Log("Bad");
+            OnGUI();
         }
 
         else if (inputFieldCo1.text == "" || inputFieldCo2.text == "")
         {
-            UnityEditor.EditorUtility.DisplayDialog("Ошибка", "Заполните все поля", "ОК");
+            //UnityEditor.EditorUtility.DisplayDialog("Ошибка", "Заполните все поля", "ОК");
         }
         /*  Statistic st = client.ShowInfo("vovaa");
           Debug.Log("id=" + st.id + " Name=" + st.name);*/
         client.BDClose();
         client.Close();
-    
+
+    }
+
+    void OnGUI()
+    {
     }
 
     public void regist()
