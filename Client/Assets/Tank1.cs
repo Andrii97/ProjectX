@@ -1,22 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TankMover : MonoBehaviour {
+public class Tank1 : MonoBehaviour {
 
     CharacterController cont;
-    public float speed = 50f;
+    public float speed = 5f;
     public static int lifes = 3;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         cont = GetComponent<CharacterController>();
-        
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if(lifes==0)
+
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (lifes == 0)
         {
             Destroy(gameObject);
         }
@@ -34,11 +36,11 @@ public class TankMover : MonoBehaviour {
             cont.Move(direction);
 
         }
-	}
+    }
 
     void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.tag == "Ammo")
+        if (col.gameObject.tag == "Ammo")
         {
             lifes--;
         }
