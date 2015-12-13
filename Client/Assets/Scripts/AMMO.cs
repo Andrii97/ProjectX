@@ -18,10 +18,10 @@ public class AMMO : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-        /*if (col.gameObject.tag == "wall" || col.gameObject.tag == "player")
+        if (col.gameObject.tag == "wall" || col.gameObject.tag == "player")
         {
             Destroy(gameObject);
             Destroy(col.gameObject);
-        }*/
+        }
     }
 }
