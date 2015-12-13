@@ -6,16 +6,17 @@ using System.ServiceModel;
 using System.IO;
 using Service;
 
-public class signin : MonoBehaviour {
+public class signin : MonoBehaviour
+{
 
     public void log()
     {
         DatabaseClient client = new DatabaseClient(new BasicHttpBinding(), new EndpointAddress(
                         new System.Uri("http://localhost:8733/Design_Time_Addresses/Service/Database/1")));
-       
+
         GameObject inputFieldGo1 = GameObject.Find("/Canvas/InputField");
         InputField inputFieldCo1 = inputFieldGo1.GetComponent<InputField>();
-        
+
         GameObject inputFieldGo2 = GameObject.Find("/Canvas/InputField (1)");
         InputField inputFieldCo2 = inputFieldGo2.GetComponent<InputField>();
 
@@ -27,9 +28,8 @@ public class signin : MonoBehaviour {
         }
         else if (!client.Authorization(inputFieldCo1.text, inputFieldCo2.text) || inputFieldCo1.text != "" || inputFieldCo2.text != "")
         {
-            Console.WriteLine("Ошибка "+ "Неправильный логин или пароль");
+            //UnityEditor.EditorUtility.DisplayDialog("Ошибка " + "Неправильный логин или пароль");
             Debug.Log("Bad");
-            OnGUI();
         }
 
         else if (inputFieldCo1.text == "" || inputFieldCo2.text == "")
@@ -41,10 +41,6 @@ public class signin : MonoBehaviour {
         client.BDClose();
         client.Close();
 
-    }
-
-    void OnGUI()
-    {
     }
 
     public void regist()

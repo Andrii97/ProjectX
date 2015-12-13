@@ -92,7 +92,6 @@
     <Compile Include="Assets\Scripts\AMMO.cs" />
     <Compile Include="Assets\Scripts\HeadMover.cs" />
     <Compile Include="Assets\Scripts\Shoot.cs" />
-    <Compile Include="Assets\Scripts\Tank.cs" />
     <Compile Include="Assets\Scripts\TankMover.cs" />
     <Compile Include="Assets\TanksSwap.cs" />
     <Compile Include="Assets\signin.cs" />
