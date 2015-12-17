@@ -9,7 +9,6 @@ public class MapController : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        CreateChild();
     }
 
     void Swap()
@@ -47,12 +46,7 @@ public class MapController : MonoBehaviour {
         newAmmo.GetComponent<Rigidbody>().AddForce(force * 500f, ForceMode.Force);
     }
     
-    void CreateChild()
-    {
-        GameObject canvas = GameObject.Find("Canvas");
-        GameObject button = Instantiate(test) as GameObject;
-        button.transform.parent = canvas.transform;
-    }
+
 
     // Update is called once per frame
     void Update () {
