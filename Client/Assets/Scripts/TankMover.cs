@@ -2,19 +2,26 @@
 using System.Collections;
 
 public class TankMover : MonoBehaviour {
-
     CharacterController cont;
-    public float speed = 50f;
+    public float speed = 5f;
+    public static int lifes = 3;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         cont = GetComponent<CharacterController>();
-        
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (lifes == 0)
+        {
+            Destroy(gameObject);
+        }
+
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -28,13 +35,13 @@ public class TankMover : MonoBehaviour {
             cont.Move(direction);
 
         }
-	}
+    }
 
     void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.name == "Cube")
+        if (col.gameObject.tag == "Ammo")
         {
-            Destroy(gameObject);
+            lifes--;
         }
     }
 }
