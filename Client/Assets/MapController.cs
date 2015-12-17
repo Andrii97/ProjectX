@@ -3,13 +3,14 @@ using System.Collections;
 
 public class MapController : MonoBehaviour {
 
-    public GameObject BotTank, MyTank, ammo;
+    public GameObject BotTank, MyTank, ammo, test;
     private Vector3 temp;
 
     // Use this for initialization
     void Start () {
-	
-	}
+
+        CreateChild();
+    }
 
     void Swap()
     {
@@ -44,6 +45,13 @@ public class MapController : MonoBehaviour {
         force.y += 0.1f;
         GameObject newAmmo = (GameObject)Instantiate(ammo, MyTank.transform.position, MyTank.transform.rotation);
         newAmmo.GetComponent<Rigidbody>().AddForce(force * 500f, ForceMode.Force);
+    }
+    
+    void CreateChild()
+    {
+        GameObject canvas = GameObject.Find("Canvas");
+        GameObject button = Instantiate(test) as GameObject;
+        button.transform.parent = canvas.transform;
     }
 
     // Update is called once per frame
