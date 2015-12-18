@@ -11,7 +11,11 @@ public class MapController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> d92d2dbfcfd8b8051784d7f00bdfd23c77c74875
     }
 
     void Swap()
@@ -48,6 +52,7 @@ public class MapController : MonoBehaviour {
         GameObject newAmmo = (GameObject)Instantiate(ammo, MyTank.transform.position, MyTank.transform.rotation);
         newAmmo.GetComponent<Rigidbody>().AddForce(force * 500f, ForceMode.Force);
     }
+<<<<<<< HEAD
 
     void EndMessage(GameObject obj)
     {
@@ -90,6 +95,10 @@ public class MapController : MonoBehaviour {
                 status = 2;
         }
     }
+=======
+    
+
+>>>>>>> d92d2dbfcfd8b8051784d7f00bdfd23c77c74875
 
     // Update is called once per frame
     void Update () {
