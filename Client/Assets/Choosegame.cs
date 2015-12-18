@@ -7,4 +7,8 @@ public class Choosegame : MonoBehaviour {
     {
         Application.LoadLevel(1);
     }
+    public void StartGame()
+    {
+        Application.LoadLevel("Map1");
+    }
 }
