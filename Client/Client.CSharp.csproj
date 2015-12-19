@@ -75,9 +75,6 @@
     <Reference Include="System.ServiceModel">
       <HintPath>Assets\Plugins\System.ServiceModel.dll</HintPath>
     </Reference>
-    <Reference Include="Assembly-UnityScript-firstpass">
-      <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Client.CSharp.Plugins.csproj">
@@ -88,7 +85,6 @@
   <ItemGroup>
     <Compile Include="Assets\Choosegame.cs" />
     <Compile Include="Assets\DatabaseClient.cs" />
-    <Compile Include="Assets\Diffuse.cs" />
     <Compile Include="Assets\MapController.cs" />
     <Compile Include="Assets\NewBehaviourScript.cs" />
     <Compile Include="Assets\NewGame.cs" />
@@ -101,7 +97,6 @@
     <Compile Include="Assets\singup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Pro Standard Assets\Water\Sources\FX-Water.shader" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />

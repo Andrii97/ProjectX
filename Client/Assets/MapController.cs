@@ -8,6 +8,7 @@ public class MapController : MonoBehaviour {
     public int status = 0, WinTrigger = 0;
     public float step;
     public Color EndMsgColor;
+    public AudioSource BotShoot, MyShoot;
 
     // Use this for initialization
     void Start () {
@@ -31,6 +32,7 @@ public class MapController : MonoBehaviour {
 
     void CreateBotAmmo()
     {
+        BotShoot.GetComponent<AudioSource>().Play();
         Vector3 force = BotAmmo.transform.forward;
         force.y += 0.05f;
         GameObject newAmmo = (GameObject)Instantiate(ammo, BotAmmo.transform.position, BotAmmo.transform.rotation);
@@ -39,6 +41,7 @@ public class MapController : MonoBehaviour {
 
     void CreateMyAmmo()
     {
+        MyShoot.GetComponent<AudioSource>().Play();
         Vector3 force = MyAmmo.transform.forward;
         force.y += 0.05f;
         GameObject newAmmo = (GameObject)Instantiate(ammo, MyAmmo.transform.position, MyAmmo.transform.rotation);
@@ -113,11 +116,11 @@ public class MapController : MonoBehaviour {
             EndMsgColor = Death.GetComponent<Renderer>().material.GetColor("_TintColor");
         }
 
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && WinTrigger == 0)
         {
             CreateMyAmmo();
         }
-        if (Input.GetKeyDown(KeyCode.F2))
+        if (Input.GetKeyDown(KeyCode.F2) && WinTrigger == 0)
         {
             CreateBotAmmo();
         }
