@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Choosegame.cs" />
      <Compile Include="Assets\DatabaseClient.cs" />
+     <Compile Include="Assets\Diffuse.cs" />
      <Compile Include="Assets\MapController.cs" />
      <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\NewGame.cs" />
@@ -68,13 +69,13 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="System.Runtime.Serialization">
- <HintPath>C:/Users/_/Documents/GitHub/ProjectX/Client/Assets/Plugins/System.Runtime.Serialization.dll</HintPath>
+ <HintPath>C:/Users/redin_000/Desktop/Client/Assets/Plugins/System.Runtime.Serialization.dll</HintPath>
  </Reference>
  <Reference Include="System.Security">
- <HintPath>C:/Users/_/Documents/GitHub/ProjectX/Client/Assets/Plugins/System.Security.dll</HintPath>
+ <HintPath>C:/Users/redin_000/Desktop/Client/Assets/Plugins/System.Security.dll</HintPath>
  </Reference>
  <Reference Include="System.ServiceModel">
- <HintPath>C:/Users/_/Documents/GitHub/ProjectX/Client/Assets/Plugins/System.ServiceModel.dll</HintPath>
+ <HintPath>C:/Users/redin_000/Desktop/Client/Assets/Plugins/System.ServiceModel.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

@@ -5,13 +5,12 @@ public class TankMover : MonoBehaviour {
     CharacterController cont;
     public float speed = 5f;
     public static int lifes = 3;
+	public GameObject MyRenderer;
 
     // Use this for initialization
     void Start()
     {
         cont = GetComponent<CharacterController>();
-
-
     }
 
     // Update is called once per frame
@@ -19,7 +18,12 @@ public class TankMover : MonoBehaviour {
     {
         if (lifes == 0)
         {
-            Destroy(gameObject);
+            MyRenderer.SetActive(false);
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                lifes = 3;
+            }
         }
 
         float x = Input.GetAxis("Horizontal");
@@ -29,7 +33,6 @@ public class TankMover : MonoBehaviour {
             transform.Rotate(0f, x, 0f);
         if (z != 0)
         {
-
             Vector3 direction = new Vector3(0f, 0f, z * speed * Time.deltaTime);
             direction = transform.rotation * direction;
             cont.Move(direction);

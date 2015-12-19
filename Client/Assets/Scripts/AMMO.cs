@@ -18,7 +18,6 @@ public class AMMO : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-
             Destroy(gameObject);
     }
 }
