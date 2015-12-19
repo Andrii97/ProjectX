@@ -4,6 +4,7 @@ using System.Collections;
 public class Tank : MonoBehaviour {
 
     public static int lifes = 3;
+    public GameObject BotRenderer;
 
     // Use this for initialization
     void Start()
@@ -15,8 +16,13 @@ public class Tank : MonoBehaviour {
     void Update()
     {
         if (lifes == 0)
-        {
-            Destroy(gameObject);
+        {            
+            BotRenderer.SetActive(false);
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                lifes = 3;
+            }
         }
     }
 

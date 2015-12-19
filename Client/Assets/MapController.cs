@@ -3,25 +3,20 @@ using System.Collections;
 
 public class MapController : MonoBehaviour {
 
-    public GameObject BotTank, MyTank, ammo, test, Victory, Death;
+    public GameObject BotTank, MyTank, MyAmmo, BotAmmo, MyRenderer, BotRenderer, ammo, Victory, Death;
     private Vector3 temp;
-    public int status = 0, WinTrigger;
+    public int status = 0, WinTrigger = 0;
     public float step;
     public Color EndMsgColor;
 
     // Use this for initialization
     void Start () {
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> d92d2dbfcfd8b8051784d7f00bdfd23c77c74875
+        BotRenderer.SetActive(true);
+        status = 0;
     }
 
     void Swap()
     {
-        MyTank = GameObject.Find("MyTank");
-        BotTank = GameObject.Find("Tank");
         temp = BotTank.transform.position;
         BotTank.transform.position = MyTank.transform.position;
         MyTank.transform.position = temp;
@@ -30,32 +25,33 @@ public class MapController : MonoBehaviour {
 
     void UpdTankPos(Vector3 pos, Vector3 rot)
     {
-        BotTank = GameObject.Find("Tank");
         BotTank.transform.position = pos;
         BotTank.transform.rotation = Quaternion.Euler(rot); ;
     }
 
     void CreateBotAmmo()
     {
-        BotTank = GameObject.Find("BotAmmo");
-        Vector3 force = BotTank.transform.forward;
-        force.y += 0.1f;
-        GameObject newAmmo = (GameObject)Instantiate(ammo, BotTank.transform.position, BotTank.transform.rotation);
-        newAmmo.GetComponent<Rigidbody>().AddForce(force * 500f, ForceMode.Force);
+        Vector3 force = BotAmmo.transform.forward;
+        force.y += 0.05f;
+        GameObject newAmmo = (GameObject)Instantiate(ammo, BotAmmo.transform.position, BotAmmo.transform.rotation);
+        newAmmo.GetComponent<Rigidbody>().AddForce(force * 1000f, ForceMode.Force);
     }
 
     void CreateMyAmmo()
     {
-        MyTank = GameObject.Find("MyAmmo");
-        Vector3 force = MyTank.transform.forward;
-        force.y += 0.1f;
-        GameObject newAmmo = (GameObject)Instantiate(ammo, MyTank.transform.position, MyTank.transform.rotation);
-        newAmmo.GetComponent<Rigidbody>().AddForce(force * 500f, ForceMode.Force);
+        Vector3 force = MyAmmo.transform.forward;
+        force.y += 0.05f;
+        GameObject newAmmo = (GameObject)Instantiate(ammo, MyAmmo.transform.position, MyAmmo.transform.rotation);
+        newAmmo.GetComponent<Rigidbody>().AddForce(force * 1000f, ForceMode.Force);
     }
-<<<<<<< HEAD
 
     void EndMessage(GameObject obj)
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {            
+            Application.LoadLevel("menu");
+            Unpause();
+        }
         if (status == 1)
         {
             if (EndMsgColor.a < 0.5)
@@ -77,16 +73,8 @@ public class MapController : MonoBehaviour {
                 status = 3;
         }
         else if (status == 3)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                status = 0;
-                WinTrigger = 0;
-                EndMsgColor.a = 0;
-                obj.GetComponent<Renderer>().material.SetColor("_TintColor", EndMsgColor);
-                Application.LoadLevel("menu");
-            }
-            else if (EndMsgColor.a < 0.5)
+        {            
+            if (EndMsgColor.a < 0.5)
             {
                 EndMsgColor.a += step / 1000;
                 obj.GetComponent<Renderer>().material.SetColor("_TintColor", EndMsgColor);
@@ -94,39 +82,51 @@ public class MapController : MonoBehaviour {
             else
                 status = 2;
         }
-    }
-=======
-    
+    }   
 
->>>>>>> d92d2dbfcfd8b8051784d7f00bdfd23c77c74875
+	void Pause()
+	{
+		Time.timeScale = 0;
+	}
+    
+    void Unpause()
+    {
+        Time.timeScale = 1;
+    }
 
     // Update is called once per frame
     void Update () {
 
-        if (Input.GetKeyDown(KeyCode.F1) && WinTrigger == 0)
+        if (BotRenderer.activeSelf == false && WinTrigger == 0)
         {
+			Pause();
             status = 1;
             WinTrigger = 1;
             EndMsgColor = Victory.GetComponent<Renderer>().material.GetColor("_TintColor");
         }
 
-        if (Input.GetKeyDown(KeyCode.F2) && WinTrigger == 0)
+		if (MyRenderer.activeSelf == false && WinTrigger == 0)
         {
+            Pause();
             status = 1;
             WinTrigger = 2;
             EndMsgColor = Death.GetComponent<Renderer>().material.GetColor("_TintColor");
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
             CreateMyAmmo();
         }
-        
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            CreateBotAmmo();
+        }
+
         if (WinTrigger == 1)
         {
             EndMessage(Victory);
         }
-        else
+        else if (WinTrigger == 2)
         {
             EndMessage(Death);            
         }        
