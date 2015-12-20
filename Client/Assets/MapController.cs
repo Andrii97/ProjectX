@@ -6,7 +6,7 @@ public class MapController : MonoBehaviour {
     public GameObject BotTank, MyTank, MyAmmo, BotAmmo, MyRenderer, BotRenderer, ammo, Victory, Death;
     private Vector3 temp;
     public int status = 0, WinTrigger = 0;
-    public float step;
+    public float step, time = 0;
     public Color EndMsgColor;
     public AudioSource BotShoot, MyShoot, BotMove;
 
@@ -108,31 +108,11 @@ public class MapController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-/*
-        if (Input.GetKey(KeyCode.Keypad5))
-        {
-            Vector3 a = BotTank.transform.position + new Vector3(0, 0, 0.1f);
-            UpdTankPos(a, BotTank.transform.eulerAngles);
-        }
-        else if (Input.GetKey(KeyCode.Keypad2))
-        {
-            Vector3 a = BotTank.transform.position - new Vector3(0, 0, 0.1f);
-            UpdTankPos(a, BotTank.transform.eulerAngles);
-        }
-        else if (Input.GetKey(KeyCode.Keypad1))
-        {
-            Vector3 a = BotTank.transform.eulerAngles - new Vector3(0, 1, 0);
-            UpdTankPos(BotTank.transform.position, a);
-        }
 
-        else if (Input.GetKey(KeyCode.Keypad3))
+        if (time > 0)
         {
-            Vector3 a = BotTank.transform.eulerAngles + new Vector3(0, 1, 0);
-            UpdTankPos(BotTank.transform.position, a);
+            time --;
         }
-        else
-            UpdTankPos(BotTank.transform.position, BotTank.transform.eulerAngles);
-            */
 
         if (BotRenderer.activeSelf == false && WinTrigger == 0)
         {
@@ -150,10 +130,12 @@ public class MapController : MonoBehaviour {
             EndMsgColor = Death.GetComponent<Renderer>().material.GetColor("_TintColor");
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && WinTrigger == 0)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && WinTrigger == 0 && time == 0)
         {
+            time = 100;
             CreateMyAmmo();
         }
+
         if (Input.GetKeyDown(KeyCode.F2) && WinTrigger == 0)
         {
             CreateBotAmmo();
@@ -163,6 +145,7 @@ public class MapController : MonoBehaviour {
         {
             EndMessage(Victory);
         }
+
         else if (WinTrigger == 2)
         {
             EndMessage(Death);            
