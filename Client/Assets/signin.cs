@@ -20,13 +20,8 @@ public class signin : MonoBehaviour
 
     public void log()
     {
-
-        /* DatabaseClient client = new DatabaseClient(new BasicHttpBinding(), new EndpointAddress(
-                         new System.Uri("http://localhost:8733/Design_Time_Addresses/Service/Database/1")));
-
-         client.BDOpen();*/
-
-        ClientOper.Start();
+        DatabaseClient client = new DatabaseClient(new BasicHttpBinding(), new EndpointAddress(
+                        new System.Uri("http://localhost:8733/Design_Time_Addresses/Service/Database/1")));
 
         GameObject inputFieldGo1 = GameObject.Find("/Canvas/Fields/InputField");
         InputField inputFieldCo1 = inputFieldGo1.GetComponent<InputField>();
@@ -34,31 +29,28 @@ public class signin : MonoBehaviour
         GameObject inputFieldGo2 = GameObject.Find("/Canvas/Fields/InputField (1)");
         InputField inputFieldCo2 = inputFieldGo2.GetComponent<InputField>();
 
-        
-
-
-        if (inputFieldCo1.text == "" || inputFieldCo2.text == "")
+        client.BDOpen();
+        if (client.Authorization(inputFieldCo1.text, inputFieldCo2.text))
         {
-            //UnityEditor.EditorUtility.DisplayDialog("Ошибка", "Заполните все поля", "ОК");
-            Error(ErrorButton2);
-        }
-
-        else if (ClientOper.Auth(inputFieldCo1.text, inputFieldCo2.text))
-        {
-            Data.pass = inputFieldCo1.text;
             Application.LoadLevel(1);
-            Debug.Log("Good " + Data.pass);
+            Debug.Log("Good");
         }
-        else 
+        else if (!client.Authorization(inputFieldCo1.text, inputFieldCo2.text) && inputFieldCo1.text != "" && inputFieldCo2.text != "")
         {
             //UnityEditor.EditorUtility.DisplayDialog("Ошибка " + "Неправильный логин или пароль");
             Error(ErrorButton1);
             Debug.Log("Bad");
         }
 
+        else if (inputFieldCo1.text == "" || inputFieldCo2.text == "")
+        {
+            //UnityEditor.EditorUtility.DisplayDialog("Ошибка", "Заполните все поля", "ОК");
+            Error(ErrorButton2);
+        }
         /*  Statistic st = client.ShowInfo("vovaa");
           Debug.Log("id=" + st.id + " Name=" + st.name);*/
-        ClientOper.Close();
+        client.BDClose();
+        client.Close();
 
     }
 

@@ -15,7 +15,7 @@ public class NewBehaviourScript : MonoBehaviour {
         Application.LoadLevel(3);
     }
 
-    public void Profil()
+    public void Profile()
     {
         Application.LoadLevel(4);
     }
