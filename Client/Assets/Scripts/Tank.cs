@@ -4,12 +4,13 @@ using System.Collections;
 public class Tank : MonoBehaviour {
 
     public int lifes = 3;
-    public GameObject BotRenderer;
+    public GameObject BotRenderer, Name;
+    public GameObject[] Lifes = new GameObject[3];
 
     // Use this for initialization
     void Start()
     {
-
+        Name.GetComponent<TextMesh>().text = "Name";
     }
 
     // Update is called once per frame
@@ -31,6 +32,7 @@ public class Tank : MonoBehaviour {
         if (col.gameObject.tag == "Ammo")
         {
             lifes--;
+            Lifes[lifes].SetActive(false);
         }
     }
 }

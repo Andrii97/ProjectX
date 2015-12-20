@@ -6,7 +6,8 @@ public class TankMover : MonoBehaviour
     CharacterController cont;
     public float speed = 5f;
     public int lifes = 3;
-    public GameObject MyRenderer;
+    public GameObject MyRenderer, Name;
+    public GameObject[] Lifes = new GameObject[3];
     public AudioSource Moving;
     public int sound = 0;
     private bool moving;
@@ -14,6 +15,7 @@ public class TankMover : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Name.GetComponent<TextMesh>().text = "Name";
         cont = GetComponent<CharacterController>();
     }
 
@@ -80,6 +82,7 @@ public class TankMover : MonoBehaviour
         if (col.gameObject.tag == "Ammo")
         {
             lifes--;
+            Lifes[lifes].SetActive(false);
         }
     }
 }

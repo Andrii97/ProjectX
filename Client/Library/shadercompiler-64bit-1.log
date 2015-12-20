@@ -1,3 +1,27 @@
 Base path: C:/Program Files/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-11724
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-8020
 Cmd: getPlatforms
+Cmd: compileSnippet
+  api=4 type=0 insize=990 outsize=1347 kw=FOG_EXP pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=990 outsize=973 kw=FOG_EXP pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=959 outsize=1347 kw=FOG_EXP pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=959 outsize=973 kw=FOG_EXP pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=577 outsize=3533 kw=SHADOWS_DEPTH pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=577 outsize=453 kw=SHADOWS_DEPTH pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=6914 outsize=4272 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=6914 outsize=1867 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF FOG_EXP pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=6914 outsize=3663 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=6914 outsize=1249 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=1001 outsize=1347 kw=FOG_EXP pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=1001 outsize=1160 kw=FOG_EXP pd= ok=1
