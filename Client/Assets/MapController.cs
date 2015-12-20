@@ -6,12 +6,13 @@ public class MapController : MonoBehaviour {
     public GameObject BotTank, MyTank, MyAmmo, BotAmmo, MyRenderer, BotRenderer, ammo, Victory, Death;
     private Vector3 temp;
     public int status = 0, WinTrigger = 0;
-    public float step, time = 0;
+    public float step, time = 0, vol = Volume.f;
     public Color EndMsgColor;
     public AudioSource BotShoot, MyShoot, BotMove;
 
     // Use this for initialization
     void Start () {
+        Volume.SetVol();
         BotRenderer.SetActive(true);
         status = 0;
     }
@@ -29,11 +30,11 @@ public class MapController : MonoBehaviour {
         if (BotTank.transform.position != pos || BotTank.transform.rotation != Quaternion.Euler(rot))
         {
             if (BotMove.volume < 0.45f)
-                BotMove.volume += 0.01f;
+                BotMove.volume += 0.01f*vol;
         }
         else if (BotMove.volume > 0f)
         {
-            BotMove.volume -= 0.1f;
+            BotMove.volume -= 0.1f*vol;
         }
         BotTank.transform.position = pos;
         BotTank.transform.rotation = Quaternion.Euler(rot);
