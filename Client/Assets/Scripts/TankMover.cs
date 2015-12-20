@@ -4,8 +4,8 @@ using System.Collections;
 public class TankMover : MonoBehaviour
 {
     CharacterController cont;
-    public float speed = 5f, step = 0.1f;
-    public static int lifes = 3;
+    public float speed = 5f;
+    public int lifes = 3;
     public GameObject MyRenderer;
     public AudioSource Moving;
     public int sound = 0;
@@ -24,7 +24,7 @@ public class TankMover : MonoBehaviour
         {
             cont.Move(new Vector3(0, -0.1f, 0));
         }
-        moving = false;
+
         if (lifes == 0)
         {
             MyRenderer.SetActive(false);
@@ -35,10 +35,11 @@ public class TankMover : MonoBehaviour
             }
         }
 
+        moving = false;
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        if (x != 0)
+        if (x != 0 && Time.timeScale == 1)
         {
             moving = true;
             if (sound != 1)
@@ -48,7 +49,7 @@ public class TankMover : MonoBehaviour
             transform.Rotate(0f, x, 0f);            
         }
 
-        if (z != 0)
+        if (z != 0 && Time.timeScale == 1)
         {
             moving = true;
             if (sound != 1)
@@ -65,12 +66,12 @@ public class TankMover : MonoBehaviour
         {
             sound = 0;
             if (Moving.volume > 0f)
-                Moving.volume -= step*4;
+                Moving.volume -= 0.04f;
         }
 
         if (sound == 1 && Moving.volume < 0.45f)
         {
-            Moving.volume += step;
+            Moving.volume += 0.01f;
         }
     }
 

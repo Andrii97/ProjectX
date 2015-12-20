@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Tank : MonoBehaviour {
 
-    public static int lifes = 3;
+    public int lifes = 3;
     public GameObject BotRenderer;
 
     // Use this for initialization

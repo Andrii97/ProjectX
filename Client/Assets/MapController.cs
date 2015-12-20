@@ -8,7 +8,7 @@ public class MapController : MonoBehaviour {
     public int status = 0, WinTrigger = 0;
     public float step;
     public Color EndMsgColor;
-    public AudioSource BotShoot, MyShoot;
+    public AudioSource BotShoot, MyShoot, BotMove;
 
     // Use this for initialization
     void Start () {
@@ -26,8 +26,17 @@ public class MapController : MonoBehaviour {
 
     void UpdTankPos(Vector3 pos, Vector3 rot)
     {
+        if (BotTank.transform.position != pos || BotTank.transform.rotation != Quaternion.Euler(rot))
+        {
+            if (BotMove.volume < 0.45f)
+                BotMove.volume += 0.01f;
+        }
+        else if (BotMove.volume > 0f)
+        {
+            BotMove.volume -= 0.1f;
+        }
         BotTank.transform.position = pos;
-        BotTank.transform.rotation = Quaternion.Euler(rot); ;
+        BotTank.transform.rotation = Quaternion.Euler(rot);
     }
 
     void CreateBotAmmo()
@@ -99,6 +108,31 @@ public class MapController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+/*
+        if (Input.GetKey(KeyCode.Keypad5))
+        {
+            Vector3 a = BotTank.transform.position + new Vector3(0, 0, 0.1f);
+            UpdTankPos(a, BotTank.transform.eulerAngles);
+        }
+        else if (Input.GetKey(KeyCode.Keypad2))
+        {
+            Vector3 a = BotTank.transform.position - new Vector3(0, 0, 0.1f);
+            UpdTankPos(a, BotTank.transform.eulerAngles);
+        }
+        else if (Input.GetKey(KeyCode.Keypad1))
+        {
+            Vector3 a = BotTank.transform.eulerAngles - new Vector3(0, 1, 0);
+            UpdTankPos(BotTank.transform.position, a);
+        }
+
+        else if (Input.GetKey(KeyCode.Keypad3))
+        {
+            Vector3 a = BotTank.transform.eulerAngles + new Vector3(0, 1, 0);
+            UpdTankPos(BotTank.transform.position, a);
+        }
+        else
+            UpdTankPos(BotTank.transform.position, BotTank.transform.eulerAngles);
+            */
 
         if (BotRenderer.activeSelf == false && WinTrigger == 0)
         {
