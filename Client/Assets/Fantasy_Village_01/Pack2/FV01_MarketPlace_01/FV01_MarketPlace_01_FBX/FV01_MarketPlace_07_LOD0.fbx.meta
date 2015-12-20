@@ -3,8 +3,13 @@ guid: 6e2aedde5ef7145c6b500e8d793b1c7a
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
     2800000: __AssetImporterPreview
+    3300000: //RootNode
     4300000: FV01_MarketPlace_07_LOD0
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 3

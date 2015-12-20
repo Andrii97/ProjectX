@@ -3,8 +3,13 @@ guid: 6b3c57fc40ad9458a8af8743ddc0a9ee
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
     2800000: __AssetImporterPreview
+    3300000: //RootNode
     4300000: FV01_furniture_setup_01
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 3
