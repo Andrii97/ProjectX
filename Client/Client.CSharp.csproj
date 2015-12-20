@@ -91,7 +91,9 @@
     <Compile Include="Assets\Profile.cs" />
     <Compile Include="Assets\Scripts\AMMO.cs" />
     <Compile Include="Assets\Scripts\HeadMover.cs" />
+    <Compile Include="Assets\Scripts\Tank.cs" />
     <Compile Include="Assets\Scripts\TankMover.cs" />
+    <Compile Include="Assets\Volume.cs" />
     <Compile Include="Assets\signin.cs" />
     <Compile Include="Assets\singup.cs" />
   </ItemGroup>

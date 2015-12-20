@@ -5,6 +5,12 @@ public class NewBehaviourScript : MonoBehaviour {
 
     public GameObject settings;
 
+    void Start()
+    {
+        Volume.GetVol();
+        settings.SetActive(false);
+    }
+
     public void NewGame()
     {
         Application.LoadLevel(3);
