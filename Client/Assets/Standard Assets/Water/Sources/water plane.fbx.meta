@@ -3,9 +3,15 @@ guid: ce8d79c79d11b8f9d00076e98d76c639
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
     2800000: __AssetImporterPreview
+    3300000: //RootNode
     4300000: pPlane1
     4300002: nurbsToPoly1
+    6400000: //RootNode
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 3

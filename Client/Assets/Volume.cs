@@ -5,10 +5,12 @@ using System.Collections;
 static class Volume{
 
     public static float f;
+    public static float fm;
 
     public static void GetVol()
     {
         f = GameObject.Find("Slider").GetComponent<Slider>().value;
+        fm = GameObject.Find("Slider(1)").GetComponent<Slider>().value;
     }
 
     public static void SetVol()
@@ -21,6 +23,11 @@ static class Volume{
         GameObject.Find("BotStartEngine").GetComponent<AudioSource>().volume *= f;
         GameObject.Find("BotEngineWorks").GetComponent<AudioSource>().volume *= f;
         GameObject.Find("Fire").GetComponent<AudioSource>().volume *= f;
+    }
+
+    public static void SetMusic()
+    {
+        GameObject.Find("Music").GetComponent<AudioSource>().volume = fm;
     }
 
 }

@@ -8,6 +8,16 @@ public class NewBehaviourScript : MonoBehaviour {
     void Start()
     {
         settings.SetActive(false);
+    }   
+
+    void Update()
+    {
+      if(settings.active == true)
+        {
+            Volume.GetVol();
+        }
+       
+        Volume.SetMusic();
     }
 
     void Update()

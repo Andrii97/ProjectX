@@ -3,8 +3,13 @@ guid: 8d983aeb3a8524342878d6ba01622f3a
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
     2800000: __AssetImporterPreview
+    3300000: //RootNode
     4300000: well02_LOD0
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 3

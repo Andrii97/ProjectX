@@ -7,7 +7,7 @@ public class MapController : MonoBehaviour
     public GameObject BotTank, MyTank, MyAmmo, BotAmmo, MyRenderer, BotRenderer, ammo, Victory, Death;
     private Vector3 temp;
     public int status = 0, WinTrigger = 0;
-    public float step, time = 0, vol = Volume.f;
+    public float step, time = 0;
     public Color EndMsgColor;
     public AudioSource BotShoot, MyShoot, BotMove;
 
@@ -15,6 +15,7 @@ public class MapController : MonoBehaviour
     void Start()
     {
         Volume.SetVol();
+        Volume.SetMusic();
         BotRenderer.SetActive(true);
         status = 0;
     }
@@ -32,11 +33,19 @@ public class MapController : MonoBehaviour
         if (BotTank.transform.position != pos || BotTank.transform.rotation != Quaternion.Euler(rot))
         {
             if (BotMove.volume < 0.45f)
+<<<<<<< HEAD
                 BotMove.volume += 0.01f * Volume.f;
         }
         else if (BotMove.volume > 0f)
         {
             BotMove.volume -= 0.1f * vol;
+=======
+                BotMove.volume += 0.01f* Volume.f;
+        }
+        else if (BotMove.volume > 0f)
+        {
+            BotMove.volume -= 0.1f* Volume.f;
+>>>>>>> 2baa0803708590722e9f21622fea9b9fa03ddda9
         }
         BotTank.transform.position = pos;
         BotTank.transform.rotation = Quaternion.Euler(rot);
@@ -134,9 +143,9 @@ public class MapController : MonoBehaviour
             EndMsgColor = Death.GetComponent<Renderer>().material.GetColor("_TintColor");
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && WinTrigger == 0 && time == 0)
+        if (Input.GetKeyDown(KeyCode.Space) && WinTrigger == 0 && time == 0)
         {
-            time = 100;
+            time = 50;
             CreateMyAmmo();
         }
 
