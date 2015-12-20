@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MapController : MonoBehaviour {
+public class MapController : MonoBehaviour
+{
 
     public GameObject BotTank, MyTank, MyAmmo, BotAmmo, MyRenderer, BotRenderer, ammo, Victory, Death;
     private Vector3 temp;
@@ -11,7 +12,8 @@ public class MapController : MonoBehaviour {
     public AudioSource BotShoot, MyShoot, BotMove;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         Volume.SetVol();
         BotRenderer.SetActive(true);
         status = 0;
@@ -30,11 +32,11 @@ public class MapController : MonoBehaviour {
         if (BotTank.transform.position != pos || BotTank.transform.rotation != Quaternion.Euler(rot))
         {
             if (BotMove.volume < 0.45f)
-                BotMove.volume += 0.01f*vol;
+                BotMove.volume += 0.01f * Volume.f;
         }
         else if (BotMove.volume > 0f)
         {
-            BotMove.volume -= 0.1f*vol;
+            BotMove.volume -= 0.1f * vol;
         }
         BotTank.transform.position = pos;
         BotTank.transform.rotation = Quaternion.Euler(rot);
@@ -61,7 +63,7 @@ public class MapController : MonoBehaviour {
     void EndMessage(GameObject obj)
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-        {            
+        {
             Application.LoadLevel("menu");
             Unpause();
         }
@@ -86,7 +88,7 @@ public class MapController : MonoBehaviour {
                 status = 3;
         }
         else if (status == 3)
-        {            
+        {
             if (EndMsgColor.a < 0.5)
             {
                 EndMsgColor.a += step / 1000;
@@ -95,35 +97,36 @@ public class MapController : MonoBehaviour {
             else
                 status = 2;
         }
-    }   
+    }
 
-	void Pause()
-	{
-		Time.timeScale = 0;
-	}
-    
+    void Pause()
+    {
+        Time.timeScale = 0;
+    }
+
     void Unpause()
     {
         Time.timeScale = 1;
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 
         if (time > 0)
         {
-            time --;
+            time--;
         }
 
         if (BotRenderer.activeSelf == false && WinTrigger == 0)
         {
-			Pause();
+            Pause();
             status = 1;
             WinTrigger = 1;
             EndMsgColor = Victory.GetComponent<Renderer>().material.GetColor("_TintColor");
         }
 
-		if (MyRenderer.activeSelf == false && WinTrigger == 0)
+        if (MyRenderer.activeSelf == false && WinTrigger == 0)
         {
             Pause();
             status = 1;
@@ -149,7 +152,7 @@ public class MapController : MonoBehaviour {
 
         else if (WinTrigger == 2)
         {
-            EndMessage(Death);            
-        }        
+            EndMessage(Death);
+        }
     }
 }
