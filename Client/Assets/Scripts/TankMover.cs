@@ -4,7 +4,7 @@ using System.Collections;
 public class TankMover : MonoBehaviour
 {
     CharacterController cont;
-    public float speed = 5f, vol = Volume.f;
+    public float speed = 5f; 
     public int lifes = 3;
     public GameObject MyRenderer, Name;
     public GameObject[] Lifes = new GameObject[3];
@@ -58,6 +58,12 @@ public class TankMover : MonoBehaviour
             {
                 sound = 1;
             }
+
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+                speed = 10f;
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+                speed = 5f;
+
             Vector3 direction = new Vector3(0f, 0f, z * speed * Time.deltaTime);
             direction = transform.rotation * direction;
             cont.Move(direction);
@@ -68,12 +74,12 @@ public class TankMover : MonoBehaviour
         {
             sound = 0;
             if (Moving.volume > 0f)
-                Moving.volume -= 0.04f*vol;
+                Moving.volume -= 0.04f*Volume.f;
         }
 
         if (sound == 1 && Moving.volume < 0.45f)
         {
-            Moving.volume += 0.01f*vol;
+            Moving.volume += 0.01f*Volume.f;
         }
     }
 
