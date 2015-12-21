@@ -6,6 +6,19 @@ public class Profile : MonoBehaviour {
 
     Text id, login, all, win, lose;
 
+    void Update()
+    {
+
+        ClientOper.Start();
+        id.text = ClientOper.Info().id.ToString();
+        login.text = ClientOper.Info().name.ToString();
+        all.text = ClientOper.Info().all.ToString();
+        win.text = ClientOper.Info().win.ToString();
+        lose.text = ClientOper.Info().lose.ToString();
+        ClientOper.Close();
+
+    }
+
     void Start()
     {
         ClientOper.Start();
