@@ -4,7 +4,7 @@ using System.Collections;
 public class TankMover : MonoBehaviour
 {
     CharacterController cont;
-    public float speed = 5f; 
+    public float speed = 5f;
     public int lifes = 3;
     public GameObject MyRenderer, Name;
     public GameObject[] Lifes = new GameObject[3];
@@ -79,6 +79,7 @@ public class TankMover : MonoBehaviour
 
         if (sound == 1 && Moving.volume < 0.45f)
         {
+            Moving.volume += 0.01f* Volume.f;
             Moving.volume += 0.01f*Volume.f;
         }
     }
