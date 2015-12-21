@@ -13,11 +13,8 @@ public class NewBehaviourScript : MonoBehaviour {
 
     void Update()
     {
-      if(settings.active == true)
-        {
+        if (settings.activeSelf == true)
             Volume.GetVol();
-        }
-       
         Volume.SetMusic();
     }
 
