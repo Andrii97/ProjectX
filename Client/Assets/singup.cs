@@ -3,7 +3,8 @@ using System.ServiceModel;
 using UnityEngine.UI;
 using System.Collections;
 
-public class singup : MonoBehaviour {
+public class singup : MonoBehaviour
+{
 
     public GameObject ErrorButton1, ErrorButton2;
     public InputField[] field = new InputField[3];
@@ -14,26 +15,25 @@ public class singup : MonoBehaviour {
         ErrorButton1.SetActive(false);
         ErrorButton2.SetActive(false);
     }
-    
+
     public void regist()
     {
 
-        DatabaseClient client = new DatabaseClient(new BasicHttpBinding(), new EndpointAddress(
-                        new System.Uri("http://localhost:8733/Design_Time_Addresses/Service/Database/1")));
+        ClientOper.Start();
 
-        client.BDOpen();
         GameObject inputFieldGo1 = GameObject.Find("/Canvas/Fields/InputField");
         InputField inputFieldCo1 = inputFieldGo1.GetComponent<InputField>();
-       
+
         GameObject inputFieldGo2 = GameObject.Find("/Canvas/Fields/InputField (1)");
         InputField inputFieldCo2 = inputFieldGo2.GetComponent<InputField>();
 
         GameObject inputFieldGo3 = GameObject.Find("/Canvas/Fields/InputField (2)");
         InputField inputFieldCo3 = inputFieldGo3.GetComponent<InputField>();
 
-        if (inputFieldCo3.text == inputFieldCo2.text && inputFieldCo3.text != "" && inputFieldCo2.text != "" && inputFieldCo1.text != "")
+        if (inputFieldCo3.text == inputFieldCo2.text && inputFieldCo3.text != "" && inputFieldCo2.text != "" && inputFieldCo1.text != "" && ClientOper.AddP(inputFieldCo1.text, inputFieldCo2.text))
         {
-            client.AddPerson(inputFieldCo1.text, inputFieldCo2.text);
+            Data.pass = inputFieldCo1.text;
+            Debug.Log(Data.pass);
             Application.LoadLevel(1);
         }
 
@@ -55,14 +55,13 @@ public class singup : MonoBehaviour {
             Error(ErrorButton2);
         }
 
-            client.BDClose();
-        client.Close();
+        ClientOper.Close();
     }
 
     public void Error(GameObject ErrorButton)
     {
         ErrorButton.SetActive(true);
-        foreach(InputField i in field)
+        foreach (InputField i in field)
         {
             i.interactable = false;
         }
@@ -71,14 +70,15 @@ public class singup : MonoBehaviour {
             b.interactable = false;
         }
     }
-    
+
     public void Disable(GameObject ErrorButton)
     {
         ErrorButton.SetActive(false);
     }
-     
+
     public void Back()
     {
         Application.LoadLevel(0);
     }
 }
+

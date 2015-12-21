@@ -33,19 +33,16 @@ public class MapController : MonoBehaviour
         if (BotTank.transform.position != pos || BotTank.transform.rotation != Quaternion.Euler(rot))
         {
             if (BotMove.volume < 0.45f)
-<<<<<<< HEAD
                 BotMove.volume += 0.01f * Volume.f;
         }
         else if (BotMove.volume > 0f)
         {
-            BotMove.volume -= 0.1f * vol;
-=======
+            BotMove.volume -= 0.1f * Volume.f;
                 BotMove.volume += 0.01f* Volume.f;
         }
         else if (BotMove.volume > 0f)
         {
             BotMove.volume -= 0.1f* Volume.f;
->>>>>>> 2baa0803708590722e9f21622fea9b9fa03ddda9
         }
         BotTank.transform.position = pos;
         BotTank.transform.rotation = Quaternion.Euler(rot);
